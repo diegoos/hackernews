@@ -1,0 +1,48 @@
+Metrics/LineLength:
+  Max: 80
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    attributes:
+      - attribute
+      - attr_reader
+      - attr_writer
+      - attr_accessor
+    associations:
+      - has_one
+      - has_many
+      - belongs_to
+      - has_and_belongs_to_many
+    validations:
+      - before_validation
+      - validate
+      - validates
+      - validates_presence_of
+      - validates_uniqueness_of
+    hooks:
+      - after_save
+      - after_create
+      - after_initialize
+  ExpectedOrder:
+      - module_inclusion
+      - constants
+      - attributes
+      - associations
+      - validations
+      - hooks
+      - public_class_methods
+      - initializer
+      - public_methods
+      - protected_methods
+      - private_methods
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+
+Style/AndOr:
+  EnforcedStyle: conditionals
