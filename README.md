@@ -1,24 +1,21 @@
-# README
+## Development install
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Clone this repository.
 
-Things you may want to cover:
+- Install bundler
 
-* Ruby version
+```sh
+$ gem install bundler
+```
 
-* System dependencies
+- Install dependencies with `bundle install`.
 
-* Configuration
+### Editor
 
-* Database creation
+If you use Vscode, you can use the [Solargraph plugin](https://github.com/castwide/vscode-solargraph).
 
-* Database initialization
+After installing the plugin, install the development tools.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+gem install rubocop rcodetools solargraph
+```
