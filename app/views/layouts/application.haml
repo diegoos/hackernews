@@ -1,12 +1,19 @@
-%html(lang="en")
+%html{ lang: "en" }
   %head
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     %meta{ content: "ie=edge", 'http-equiv': "X-UA-Compatible" }
-    %title Top Hacker News
+    %title Hacker News
 
-    = javascript_pack_tag 'application'
-    = stylesheet_pack_tag 'application'
+    = stylesheet_pack_tag 'application', media: 'all'
 
   %body
+    %header.navbar.header.columns.is-marginless.is-centered
+      .navbar-brand.column.is-8
+        %a.navbar-item.header--title.title.is-4.is-paddingless{ href: '/' }
+          %span.header--logo
+          Hacker News
+
     = yield
+
+    = javascript_pack_tag 'application'
