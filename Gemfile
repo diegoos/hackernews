@@ -25,10 +25,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'haml', '~> 5.1', '>= 5.1.2'
 # Haml-rails provides Haml generators for Rails 5
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
+# makes consuming restful web services dead easy. Read more: https://github.com/jnunemaker/httparty
+gem 'httparty', '~> 0.17.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # RSpec is a Behaviour-Driven Development tool for Ruby programmers
   gem 'rspec-rails', '~> 3.9'
 end
@@ -51,4 +53,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
