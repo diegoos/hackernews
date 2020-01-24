@@ -1,7 +1,7 @@
 .header {
   background-color: $main-color;
 
-  &--logo {
+  &__logo {
     margin-right: 5px;
     padding: 0px 10px;
     font-size: 1.3em;
@@ -13,14 +13,10 @@
     }
   }
 
-  &--title {
+  &__title {
     display: flex;
     align-items: center;
     color: $header-title-color;
     font-weight: bold;
-  }
-
-  &--body {
-    padding: 25px 0 15px;
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="columns is-centered is-marginless search">
     <div class="column is-8">
-      <form action="" class="search--form">
-        <input class="search--input" type="text" placeholder="Text input">
+      <form action="" class="search__form">
+        <input class="search__input" type="text" placeholder="Text input">
         <button class="button">Buscar</button>
       </form>
     </div>
@@ -23,7 +23,7 @@ export default {
   .search {
     background-color: #fff;
 
-    &--form {
+    &__form {
       display: flex;
       align-items: center;
       margin-bottom: 0;
@@ -32,7 +32,7 @@ export default {
       box-sizing: content-box;
     }
 
-    &--input {
+    &__input {
       width: 100%;
       border: 0;
       font-size: 1em;
