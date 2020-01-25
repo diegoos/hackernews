@@ -8,7 +8,7 @@ class Story
 
   def self.get(limit = 10)
     @_get ||= begin
-                HackerNewsApi.retrieve_top_stories(limit).map do |story|
+                HackerNewsApi.retrieve_stories_data(limit).map do |story|
                   Story.new(story)
                 end
               end

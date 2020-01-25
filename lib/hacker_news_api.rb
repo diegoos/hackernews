@@ -5,18 +5,20 @@ module HackerNewsApi
   include HTTParty
   base_uri 'https://hacker-news.firebaseio.com/v0'
 
+  module_function
+
   # Get items from Hacker News API
   def item(id)
     get("/item/#{id}.json")
   end
 
+  # Get top stories id list
   def top_stories
     get('/topstories.json')
   end
 
-  module_function
-
-  def retrieve_top_stories(limit)
+  # Retrieve the stories data from API
+  def retrieve_stories_data(limit)
     stories = top_stories
 
     return [] unless stories.code == 200
