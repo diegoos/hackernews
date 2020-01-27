@@ -1,5 +1,5 @@
 #app
-  %Search
+  %search
 
   %section.section
     .columns.is-centered
@@ -18,13 +18,12 @@
 
             %p.subtitle.is-7.m-bottom-10.m-top-0.story__info
               by
-              %span.story__info--underline.m-right-5
-                = story.by
               %span.story__info--underline
-                = format_date(story.time)
+                = story.by
+                %span.m-left-5
+                  = format_date(story.time)
 
             %p.is-size-7.has-text-weight-semibold.m-bottom-10
               = pluralize(story.comments_count, 'comment')
 
-            = link_to '#', class: 'is-size-7' do
-              + Show most relevant comments
+            %comments-list{'comment-ids': story.comments}

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :hacker_news do # rubocop:disable Metrics/BlockLength
-  namespace :cache do
+  namespace :cache do # rubocop:disable Metrics/BlockLength
     desc 'Update JSON cache with last stories'
     task :update_top_stories do
       stories = HackerNewsApi.top_stories

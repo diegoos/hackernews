@@ -5,7 +5,7 @@ module.exports = {
     alias: {
       '@js': path.resolve(__dirname, '..', '..', 'app/assets/javascripts'),
       '@sass': path.resolve(__dirname, '..', '..', 'app/assets/stylesheets'),
-      '@components': path.resolve(__dirname, '..', '..', 'app/assets/components'),
+      '@components': path.resolve(__dirname, '..', '..', 'app/assets/javascript/components'),
     }
   }
 }
