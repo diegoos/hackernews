@@ -3,21 +3,30 @@
 require 'rails_helper'
 
 RSpec.describe Story, type: :model do
-  let(:stories) { described_class.all(2) }
+  let(:top_stories) { described_class.all(2) }
 
   describe '.all' do
     context 'with two stories' do
-      it { expect(stories.size).to eq(2) }
+      it { expect(top_stories.size).to eq(2) }
     end
 
     context 'when item is a Story instance' do
-      it { expect(stories.first.class).to eq(described_class) }
+      it { expect(top_stories.first.class).to eq(described_class) }
+    end
+
+    context 'when item is not a top story' do
+      let(:top_stories_ids) { HackerNewsApi.top_stories.parsed_response }
+      let(:new_story_id) { described_class.all(1, :new).first.id }
+
+      it do
+        expect(top_stories_ids.include?(new_story_id)).to be_falsey
+      end
     end
   end
 
   describe '#comment_count' do
     it 'with five comments' do
-      story = stories.first.dup
+      story = top_stories.first.dup
       story.comments = [1, 2, 3, 4, 5]
 
       expect(story.comments_count).to eq(5)

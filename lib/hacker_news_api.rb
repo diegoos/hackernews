@@ -12,14 +12,25 @@ module HackerNewsApi
     get("/item/#{id}.json")
   end
 
+  # Get the new stories
+  def new_stories
+    get('/newstories.json')
+  end
+
   # Get top stories id list
   def top_stories
     get('/topstories.json')
   end
 
   # Retrieve the stories data from API
-  def retrieve_stories_data(limit = nil)
-    response = top_stories
+  # We can pass the limit and type of stories to retrieve
+  # For default we get the top stories
+  #
+  #   retrieve_stories_data(10) # => Get first 10 top stories
+  #   retrieve_stories_data(10, :new) # => Get first 10 new stories
+  #
+  def retrieve_stories_data(limit = nil, type = :top)
+    response = send("#{type}_stories")
 
     return [] unless response.code == 200
 

@@ -26,4 +26,5 @@
             %p.is-size-7.has-text-weight-semibold.m-bottom-10
               = pluralize(story.comments_count, 'comment')
 
-            %comments-list{'comment-ids': story.comments}
+            - unless story.comments_count.zero?
+              %comments-list{'comment-ids': story.comments}
