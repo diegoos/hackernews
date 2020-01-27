@@ -14,7 +14,7 @@
       <li class="m-bottom-15" v-for="comment in comments" :key="comment.id">
         <p class="comment__info--underline subtitle is-7 m-bottom-10 m-top-0 has-text-weight-bold">
           {{ comment.by }}
-          {{ comment.time }}
+          {{ formatDate(comment.time) }}
         </p>
 
         <p class="comment__body" v-html="comment.text"></p>
@@ -100,6 +100,21 @@ export default {
         "comment__container--loading",
         "is-content-loading"
       );
+    },
+
+    formatDate(timestamp) {
+      let date = new Date(timestamp * 1000);
+      let day = (date.getDate() < 10 ? "0" : "") + date.getDate();
+      let month = (date.getMonth() < 10 ? "0" : "") + (date.getMonth() + 1);
+      let year = date.getFullYear();
+
+      let formatedDate = [month, day, year].join("/");
+
+      let hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
+      let minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+      let time = [hours, minutes].join(":");
+
+      return formatedDate + " " + time
     }
   }
 };
