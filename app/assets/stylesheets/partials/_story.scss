@@ -1,0 +1,13 @@
+.story {
+  &__title {
+    color: $content-text-color;
+  }
+
+  &__info {
+    color: $content-text-color;
+
+    &--underline {
+      text-decoration: underline;
+    }
+  }
+}

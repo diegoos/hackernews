@@ -5,3 +5,8 @@ body {
 .has-main-color {
   color: $main-color;
 }
+
+// Anchors
+a {
+  transition: .2s;
+}

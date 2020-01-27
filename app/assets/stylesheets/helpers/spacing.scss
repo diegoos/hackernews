@@ -1,0 +1,26 @@
+$sizes: (0,5,10,15,20,25,30,50);
+$positions: ('top','right','bottom','left');
+
+@each $size in $sizes {
+  // Margin helpers
+  .m-#{$size} {
+    margin: $size + px !important;
+  }
+
+  @each $position in $positions {
+    .m-#{$position}-#{$size} {
+      margin-#{$position}: $size + px !important;
+    }
+  }
+
+  // Padding helpers
+  .p-#{$size} {
+    padding: $size + px !important;
+  }
+
+  @each $position in $positions {
+    .p-#{$position}-#{$size} {
+      padding-#{$position}: $size + px !important;
+    }
+  }
+}

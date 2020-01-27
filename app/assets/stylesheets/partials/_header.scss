@@ -18,5 +18,9 @@
     align-items: center;
     color: $header-title-color;
     font-weight: bold;
+
+    &:hover {
+      color: $header-title-color !important;
+    }
   }
 }
