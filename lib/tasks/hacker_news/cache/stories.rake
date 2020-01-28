@@ -23,8 +23,8 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
 
     desc 'Generate the JSON cache with all top and new stories. This task reset the cache if exist.' # rubocop:disable Layout/LineLength
     task :stories do
-      top_stories = HackerNewsApi.retrieve_stories_data(10)
-      new_stories = HackerNewsApi.retrieve_stories_data(10, :new)
+      top_stories = HackerNewsApi.retrieve_stories_data(15)
+      new_stories = HackerNewsApi.retrieve_stories_data(nil, :new)
 
       # Generate top stories cache json
       File.open(cache_file('top_stories'), 'w+') do |f|
