@@ -50,10 +50,11 @@ module HackerNewsApi
 
   # Load stories from JSON cache
   def load_stories_cache(type = :top)
-    cache_file = Rails.root.join('tmp', 'hacker_news', "#{type}_stories.json")
+    cache_key = "#{type}_stories"
 
-    return nil unless File.exist?(cache_file)
-
-    JSON.parse(File.read(cache_file))
+    redis = Redis.new
+    JSON.parse(redis.get(cache_key))
+  rescue Redis::CannotConnectError
+    nil
   end
 end
