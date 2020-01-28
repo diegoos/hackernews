@@ -47,6 +47,10 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
 
       Dir.mkdir(cache_dir) unless File.directory?(cache_dir)
 
+      unless File.exist?(cache_file)
+        File.open(cache_file, 'w+') { |f| f.write('') }
+      end
+
       cache_file
     end
   end
