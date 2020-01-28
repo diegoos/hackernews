@@ -10,7 +10,7 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
       stories = HackerNewsApi.send(type)
 
       cache = JSON.parse(File.read(cache_file(type)))
-      last_story_id = cache.first['id']
+      last_story_id = cache.first['id'] if cache.present?
 
       stories.each do |story|
         break if last_story_id == story
