@@ -34,7 +34,7 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
     task :stories, [:limit] do |_t, args|
       puts 'Redis is not connected' unless redis_is_ok?
 
-      limit = args[:limit].to_i || nil
+      limit = args[:limit].present? ? args[:limit].to_i : nil
 
       top_stories = HackerNewsApi.retrieve_stories_data(15)
       new_stories = HackerNewsApi.retrieve_stories_data(limit, :new)
