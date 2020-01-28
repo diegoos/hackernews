@@ -40,6 +40,8 @@ module HackerNewsApi
 
     stories.each do |story|
       item = item(story).parsed_response
+      next unless item.present?
+
       all_stories << item if item['type'] == 'story'
     end
 

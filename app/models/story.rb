@@ -52,6 +52,8 @@ class Story
       stories_cache = HackerNewsApi.load_stories_cache(:new)
       query_regex = Regexp.new query.gsub(/\s/, '|')
 
+      return [] unless stories_cache.present?
+
       stories_cache.select! do |story|
         story['title'].scan(query_regex).present?
       end

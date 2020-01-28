@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require Rails.root.join('lib', 'hacker_news_api.rb')
+
 namespace :hacker_news do # rubocop:disable Metrics/BlockLength
   namespace :cache do # rubocop:disable Metrics/BlockLength
     desc 'Update JSON cache with last stories'
