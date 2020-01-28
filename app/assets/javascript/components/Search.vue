@@ -2,7 +2,7 @@
   <div class="columns is-centered is-marginless search">
     <div class="column is-8">
       <form action class="search__form">
-        <input class="search__input" type="text" placeholder="Text input" />
+        <input class="search__input" type="text" placeholder="Search stories" :value="SearchQuery" />
         <button class="button search__button">
           <svg
             enable-background="new 0 0 511.999 511.999"
@@ -22,7 +22,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['SearchQuery']
+};
 </script>
 
 <style lang="scss" scoped>

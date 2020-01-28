@@ -1,0 +1,18 @@
+%article.card.m-bottom-15.story
+  .card-content
+    %h2.title.is-5.m-bottom-10
+      = link_to story.url, class: 'story__title', target: :blank do
+        = story.title
+
+    %p.subtitle.is-7.m-bottom-10.m-top-0.story__info
+      by
+      %span.story__info--underline
+        = story.by
+        %span.m-left-5
+          = format_date(story.time)
+
+    %p.is-size-7.has-text-weight-semibold.m-bottom-10
+      = pluralize(story.comments_count, 'comment')
+
+    - unless story.comments_count.zero?
+      %comments-list{'comment-ids': story.comments}

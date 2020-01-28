@@ -14,6 +14,9 @@
           %span.header__logo
           Hacker News
 
-    = yield
+    #app
+      %search{ 'search-query': params[:search_query] }
+
+      = yield
 
     = javascript_pack_tag 'application'
