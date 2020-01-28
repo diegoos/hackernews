@@ -1,8 +1,13 @@
 <template>
   <div class="columns is-centered is-marginless search">
     <div class="column is-8">
-      <form action class="search__form">
-        <input class="search__input" type="text" placeholder="Search stories" :value="SearchQuery" />
+      <form :action="'/search/'+formAction" class="search__form" @submit.prevent="performSearch">
+        <input
+          class="search__input"
+          type="text"
+          placeholder="Search stories"
+          v-model="formAction"
+        />
         <button class="button search__button">
           <svg
             enable-background="new 0 0 511.999 511.999"
@@ -23,7 +28,19 @@
 
 <script>
 export default {
-  props: ['SearchQuery']
+  data () {
+    return {
+      formAction: this.SearchQuery
+    }
+  },
+
+  props: ['SearchQuery'],
+
+  methods: {
+    performSearch (e) {
+      document.location.href = e.target.action
+    }
+  }
 };
 </script>
 

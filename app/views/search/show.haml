@@ -7,5 +7,10 @@
 
 %section.columns.is-centered.p-top-0
   .column.is-8
-    -# - @stories.each do |story|
-    -#   = render partial: 'shared/story_card', locals: { story: story }
+    - if @search.present?
+      - @search.each do |story|
+        = render partial: 'shared/story_card', locals: { story: story }
+
+    - else
+      .p-10
+        No results found. :[

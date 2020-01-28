@@ -47,8 +47,8 @@ module HackerNewsApi
   end
 
   # Load stories from JSON cache
-  def load_stories_cache
-    cache_file = Rails.root.join('tmp', 'hacker_news', 'top_stories.json')
+  def load_stories_cache(type = :top)
+    cache_file = Rails.root.join('tmp', 'hacker_news', "#{type}_stories.json")
 
     return nil unless File.exist?(cache_file)
 
