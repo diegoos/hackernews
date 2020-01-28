@@ -1,14 +1,12 @@
 
 // Import variables
-@import "variables";
+@import "./variables";
 
 // Import Bulma
-@import "~bulma/bulma";
-
-// Import base style
-@import "base";
+@import "bulma/bulma";
 
 // Import helpers
+@import "helpers/base";
 @import "helpers/spacing";
 @import "helpers/content-loader";
 
