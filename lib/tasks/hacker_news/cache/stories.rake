@@ -42,13 +42,13 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
     # Methods
 
     def cache_file(filename)
-      cache_file = Rails.root.join('tmp', 'hacker_news', "#{filename}.json")
+      cache_file = Rails.root.join('hacker_news', 'cache', "#{filename}.json")
       cache_dir = File.dirname(cache_file)
 
       Dir.mkdir(cache_dir) unless File.directory?(cache_dir)
 
       unless File.exist?(cache_file)
-        File.open(cache_file, 'w+') { |f| f.write('{}') }
+        File.open(cache_file, 'w+') { |f| f.write('[]') }
       end
 
       cache_file
