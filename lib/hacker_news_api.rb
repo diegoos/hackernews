@@ -53,7 +53,12 @@ module HackerNewsApi
     cache_key = "#{type}_stories"
 
     redis = Redis.new
-    JSON.parse(redis.get(cache_key))
+
+    cache_obj = redis.get(cache_key)
+
+    return nil if cache_obj.nil?
+
+    JSON.parse(cache_obj)
   rescue Redis::CannotConnectError
     nil
   end

@@ -13,7 +13,7 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
       redis = Redis.new
       cache = redis.get(cache_key)
 
-      stories = HackerNewsApi.send(type)
+      stories = HackerNewsApi.send(args[:story_type])
 
       if cache.present?
         last_story_id = cache.first['id']
