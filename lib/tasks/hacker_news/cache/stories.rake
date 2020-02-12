@@ -8,12 +8,12 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
     task :update_stories, [:story_type] do |_t, args|
       puts 'Redis is not connected' unless redis_is_ok?
 
-      cache_key = "#{args[:story_type]}_stories"
+      type = "#{args[:story_type]}_stories"
 
       redis = Redis.new
-      cache = redis.get(cache_key)
+      cache = redis.get(type)
 
-      stories = HackerNewsApi.send(args[:story_type])
+      stories = HackerNewsApi.send(type)
 
       if cache.present?
         last_story_id = cache.first['id']
@@ -27,7 +27,7 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
         cache.prepend HackerNewsApi.item(story).parsed_response
       end
 
-      redis.set(cache_key, cache)
+      redis.set(type, cache)
     end
 
     desc 'Generate the JSON cache with all top and new stories. This task reset the cache if exist.' # rubocop:disable Layout/LineLength
