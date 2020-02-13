@@ -11,12 +11,14 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
       type = "#{args[:story_type]}_stories"
 
       redis = Redis.new
+
       cache = redis.get(type)
+      cache = JSON.parse(cache) if cache.present?
 
       stories = HackerNewsApi.send(type)
 
       if cache.present?
-        last_story_id = cache.first['id']
+        last_story_id = cache.first['id'] if cache.first.present?
       else
         cache = []
       end
@@ -24,10 +26,10 @@ namespace :hacker_news do # rubocop:disable Metrics/BlockLength
       stories.each do |story|
         break if last_story_id == story
 
-        cache.prepend HackerNewsApi.item(story).parsed_response
+        cache.prepend(HackerNewsApi.item(story).parsed_response)
       end
 
-      redis.set(type, cache)
+      redis.set(type, cache.to_json)
     end
 
     desc 'Generate the JSON cache with all top and new stories. This task reset the cache if exist.' # rubocop:disable Layout/LineLength
