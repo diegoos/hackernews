@@ -26,7 +26,7 @@ gem 'haml', '~> 5.1', '>= 5.1.2'
 # Haml-rails provides Haml generators for Rails 5
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 # makes consuming restful web services dead easy. Read more: https://github.com/jnunemaker/httparty
-gem 'httparty', '~> 0.17.3'
+gem 'httparty', '~> 0.21.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
